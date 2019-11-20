@@ -3,25 +3,19 @@ import PlacesAutocomplete from "react-places-autocomplete";
 
 export default props => {
   const [currentAddress, setCurrentAddress] = useState("");
-  //   const handleSelect = address => {
-  //     props.setAddress(address);
-  //     geocodeByAddress(address)
-  //       .then(results => getLatLng(results[0]))
-  //       .then(latLng => {
-  //         props.setZoom(12);
-  //         props.setCenter({ lat: latLng.lat, lng: latLng.lng });
-  //       });
-  //   };
+  ////// Remove inline styles
   const style = {
     position: "absolute",
     top: "0",
     left: "50%"
   };
   return (
+    //Search function provided by React Places Autocomplete + Places Google API 
     <PlacesAutocomplete
       value={currentAddress}
       onChange={setCurrentAddress}
       onSelect={address => {
+        //When Address/Location chosen from 'select' dropdown, the value is passed into "setAddress" state updating the center coordinates of the map
         props.setAddress(address);
         setCurrentAddress(address);
       }}
@@ -35,8 +29,10 @@ export default props => {
             })}
           />
           <div className="search_dropdown">
-            {loading && <div>Loading...</div>}
-            {suggestions.map(suggestion => {
+            {loading && <div>Searching...</div>}
+            {
+              //Uses React Places to loop through possible suggestions for address based off value from 'currentAddress' state. 
+              suggestions.map(suggestion => {
               const className = suggestion.active
                 ? "dropdown_suggestion--active"
                 : "dropdown_suggestion";

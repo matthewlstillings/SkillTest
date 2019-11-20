@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
+import React, { useState, useEffect } from "react";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import SearchBar from "./Search";
+import InfoBox from './InfoBox';
 import pin from "./images/mapPin.png";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { snazzyStyles } from "./MapStyles";
@@ -12,7 +13,7 @@ const DEFAULT_CENTER = { lat: 47.1, lng: -120.1 };
 
 const getResults = offset =>
   fetch(
-    `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=${API_KEY}&latitude=47.1&longitude=-120.1&state=WA&limit=200&offset=${offset}&radius=220&fuel_type=ELEC`
+    `https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=${'h8pP3dk3ZPgI694vYTHSFmgNboSVlXdknQ4hjNep'}&latitude=47.1&longitude=-120.1&state=WA&limit=200&offset=${offset}&radius=220&fuel_type=ELEC`
   );
 
 export default props => {
@@ -57,7 +58,8 @@ export default props => {
   }, [address]);
 
   return (
-    <>
+    <main className="map_app_main"> 
+
       <GoogleMap
         id="map"
         mapContainerStyle={{
@@ -95,25 +97,7 @@ export default props => {
             />
           );
         })}
-        {info && (
-          <InfoWindow position={{ lat: info.latitude, lng: info.longitude }}>
-            <div
-              style={{
-                background: `white`,
-                border: `1px solid #ccc`,
-                padding: "15px"
-              }}
-            >
-              <p>{info.station_name}</p>
-              <p>{info.street_address}</p>
-              <p>
-                {info.city}, {info.state}, {info.zip}
-              </p>
-
-              <p>Open: {info.access_days_time}</p>
-            </div>
-          </InfoWindow>
-        )}
+        
       </GoogleMap>
       <SearchBar
         address={address}
@@ -121,6 +105,9 @@ export default props => {
         setCenter={setCenter}
         setZoom={setZoom}
       />
-    </>
+      {info && (
+          <InfoBox info={info} />
+      )}
+    </main>
   );
 };
