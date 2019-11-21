@@ -97,9 +97,10 @@ export const InfoBox = styled.div`
         line-height: 1.33em;
     }
     .close_info {
+        font-size: .8em;
+        cursor: pointer;
         position: absolute;
         top: 10px;
         right: 10px;
-        font-size: .8em;
     }
 `
