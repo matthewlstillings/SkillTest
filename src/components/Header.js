@@ -1,7 +1,8 @@
 import React from 'react';
+import {Header} from './styles';
 
 export default () => (
-    <header>
-        <p>WA/EV</p>
-    </header>
+    <Header>
+        <p>ZappyMap / Washington</p>
+    </Header>
 )
