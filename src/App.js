@@ -100,12 +100,10 @@ export default props => {
                 }}
                 //check between mouseenter - mouseover//////////////////////////////////////////////////////
                 // Setting Info to data from marker to InfoBox
-                onMouseOver={() => {
+                onClick={() => {
                   const data = station;
-                  setInfo(data);
-                }}
-                onMouseOut={() => {
                   setInfo(null);
+                  setInfo(data);
                 }}
                 cursor={"pointer"}
                 title={station.station_name}
