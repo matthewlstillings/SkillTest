@@ -101,7 +101,6 @@ export default props => {
                   lat: station.latitude,
                   lng: station.longitude
                 }}
-                //check between mouseenter - mouseover//////////////////////////////////////////////////////
                 // Setting Info to data from marker to InfoBox
                 onClick={() => {
                   const data = station;
