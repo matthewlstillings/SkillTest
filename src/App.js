@@ -10,9 +10,7 @@ import { snazzyStyles } from "./components/MapStyles";
 import { Map } from "./components/styles";
 
 // Default Variables
-//const API_KEY = process.env.REACT_APP_NREL_API_KEY;h8pP3dk3ZPgI694vYTHSFmgNboSVlXdknQ4hjNep
-const API_KEY = "h8pP3dk3ZPgI694vYTHSFmgNboSVlXdknQ4hjNep";
-const DEFAULT_ZOOM = 8;
+const API_KEY = process.env.REACT_APP_NREL_API_KEY;
 const PAGE_SIZE = 200; // Increment size for data-fetch loop
 const DEFAULT_CENTER = { lat: 47.1, lng: -120.1 };
 
