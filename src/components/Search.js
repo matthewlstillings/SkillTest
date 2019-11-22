@@ -40,10 +40,11 @@ export default props => {
               {//Uses React Places to loop through possible suggestions for address based off value from 'currentAddress' state.
               suggestions.map(suggestion => {
                 return (
-                  <div className="dropdown_suggestion">
-                    <span>
-                      <p>{suggestion.description}</p>
-                    </span>
+                  <div
+                    {...getSuggestionItemProps(suggestion)}
+                    className="dropdown_suggestion suggestion-item"
+                  >
+                    <span>{suggestion.description}</span>
                   </div>
                 );
               })}
