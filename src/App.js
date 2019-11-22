@@ -57,7 +57,7 @@ export default props => {
       .then(results => getLatLng(results[0]))
       .then(latLng => {
         if (aborted) return;
-        setZoom(12);
+        setZoom(14);
         setCenter({ lat: latLng.lat, lng: latLng.lng });
         setAddress("");
       });

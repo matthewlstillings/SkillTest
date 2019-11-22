@@ -25,7 +25,9 @@ export const SearchBar = styled.div`
     background: url(${arrow}) center right 12px/22px no-repeat;
     background-color: #fff;
     box-shadow: 0 0 5px 0 rgba(126, 126, 126, 0.5);
+    position: relative;
     width: 100%;
+    z-index: 5;
   }
   input {
     background: transparent;
@@ -45,6 +47,7 @@ export const SearchBar = styled.div`
     max-width: 100%;
     top: -0.1em;
     width: 100%;
+    z-index: 2;
   }
   .search_dropdown.visible {
     padding: 1.1em 1.5em 1em 0.7em;
