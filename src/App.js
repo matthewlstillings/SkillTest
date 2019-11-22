@@ -11,6 +11,7 @@ import { Map } from "./components/styles";
 
 // Default Variables
 const API_KEY = process.env.REACT_APP_NREL_API_KEY;
+const DEFAULT_ZOOM = 8;
 const PAGE_SIZE = 200; // Increment size for data-fetch loop
 const DEFAULT_CENTER = { lat: 47.1, lng: -120.1 };
 
